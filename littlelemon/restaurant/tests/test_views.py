@@ -15,11 +15,11 @@ class MenuViewTest(TestCase):
 
     def test_getall(self):
         """Recupera todos los objetos del modelo Menu y verifica la respuesta"""
-        response = self.client.get(reverse('menu-list'))  # Asegúrate de que esta URL está definida en urls.py
+        response = self.client.get(reverse('menu-list'))  # Asegurar de que esta URL está definida en urls.py
         menus = Menu.objects.all()
         serializer = MenuSerializer(menus, many=True)
 
-        # DEBUG: Imprimir la respuesta para ver qué devuelve la API
+        # Imprimir la respuesta para ver qué devuelve la API
         print(f"DEBUG: Response Data = {response.data}")
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
